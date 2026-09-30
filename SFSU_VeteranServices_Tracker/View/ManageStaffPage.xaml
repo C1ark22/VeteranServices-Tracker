@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    x:Class="SFSU_VeteranServices_Tracker.View.ManageStaffPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Manage Staff">
+
+    <ScrollView>
+
+        <VerticalStackLayout Padding="30" Spacing="20">
+
+            <!--  Page Title  -->
+            <Label
+                FontAttributes="Bold"
+                FontSize="32"
+                HorizontalOptions="Center"
+                Text="Manage Staff Accounts" />
+
+            <Label HorizontalOptions="Center" Text="Create a new staff account" />
+
+            <!--  Username  -->
+            <Label FontAttributes="Bold" Text="Username" />
+
+            <Entry x:Name="usernameEntry" Placeholder="Enter staff username" />
+
+            <!--  Temporary Password  -->
+            <Label FontAttributes="Bold" Text="Temporary Password" />
+
+            <Entry
+                x:Name="passwordEntry"
+                IsPassword="True"
+                Placeholder="Enter temporary password" />
+
+            <!--  Confirm Password  -->
+            <Label FontAttributes="Bold" Text="Confirm Password" />
+
+            <Entry
+                x:Name="confirmPasswordEntry"
+                IsPassword="True"
+                Placeholder="Re-enter temporary password" />
+
+            <!--  Create Staff Button  -->
+            <Button
+                x:Name="createStaffButton"
+                Clicked="OnCreateStaffClicked"
+                Text="Create Staff Account" />
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>

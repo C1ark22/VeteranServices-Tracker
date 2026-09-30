@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="SFSU_VeteranServices_Tracker.Api/SFSU_VeteranServices_Tracker.Api.csproj" />
+  <Project Path="SFSU_VeteranServices_Tracker/SFSU_VeteranServices_Tracker.csproj" />
+</Solution>

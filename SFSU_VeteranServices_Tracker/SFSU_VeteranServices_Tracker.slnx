@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="../SFSU_VeteranServices_Tracker.Api/SFSU_VeteranServices_Tracker.Api.csproj" Id="db241058-85e3-4b5e-8a2b-0078459ac32b" />
+  <Project Path="SFSU_VeteranServices_Tracker.csproj" />
+</Solution>

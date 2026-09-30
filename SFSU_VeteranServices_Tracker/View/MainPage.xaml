@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="SFSU_VeteranServices_Tracker.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <ScrollView>
+        
+        <VerticalStackLayout Padding="30,0" Spacing="25">
+            <!-- Staff Button -->
+            <Grid>
+                <Button
+                x:Name="staffButton"
+                Text="Staff"
+                HorizontalOptions="End"
+                Clicked="OnStaffClicked" />
+            </Grid>
+
+            <!--  SFSU Veterans Logo  -->
+            <Image
+                Aspect="AspectFit"
+                HeightRequest="250"
+                SemanticProperties.Description="SFSU veterans logo"
+                Source="sfsu_vets_logo.png" />
+
+            <!--  Page Title  -->
+            <Label
+                FontAttributes="Bold"
+                FontSize="40"
+                HorizontalOptions="Center"
+                Text="Veteran Services Check-In" />
+
+            <!--  Full Name  -->
+            <Label FontSize="16" Text="Full Name" />
+
+            <Entry x:Name="fullNameEntry" Placeholder="Enter Full Name" />
+
+            <!--  Student ID  -->
+            <Label FontSize="16" Text="Student ID" />
+
+            <Entry x:Name="studentIdEntry" Placeholder="Enter Student ID" />
+
+            <!--  Student Status  -->
+            <Label FontSize="16" Text="Student Status" />
+
+            <Picker
+                x:Name="studentStatusPicker"
+                Title="Select Student Status"
+                HorizontalOptions="Fill">
+
+                <Picker.Items>
+                    <x:String>Veteran</x:String>
+                    <x:String>Active Duty</x:String>
+                    <x:String>Reserve</x:String>
+                    <x:String>Dependent</x:String>
+                    <x:String>Civilian</x:String>
+                </Picker.Items>
+
+            </Picker>
+
+            <!--  Code of Conduct  -->
+            <Grid ColumnDefinitions="Auto,*" ColumnSpacing="10">
+
+                <CheckBox
+                    x:Name="codeOfConductCheckBox"
+                    Grid.Column="0"
+                    IsEnabled="False"
+                    VerticalOptions="Center" />
+
+                <HorizontalStackLayout
+                    Grid.Column="1"
+                    Spacing="4"
+                    VerticalOptions="Center">
+
+                    <Label Text="I have read and agree to the" VerticalOptions="Center" />
+
+                    <Label
+                        Text="Code of Conduct"
+                        TextDecorations="Underline"
+                        VerticalOptions="Center">
+
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnCodeOfConductTapped" />
+                        </Label.GestureRecognizers>
+
+                    </Label>
+
+                </HorizontalStackLayout>
+
+            </Grid>
+
+            <!--  Check In Button  -->
+            <Button
+                x:Name="checkInButton"
+                Clicked="OnCheckInClicked"
+                HorizontalOptions="Fill"
+                Text="CHECK IN" />
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

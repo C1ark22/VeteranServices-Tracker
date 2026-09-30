@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    x:Class="SFSU_VeteranServices_Tracker.View.StaffPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="StaffPage">
+
+    <ScrollView>
+
+        <VerticalStackLayout Padding="30" Spacing="20">
+
+            <!--  Staff action buttons  -->
+            <Grid ColumnDefinitions="*,*">
+
+                <!--  Only visible when the logged-in user is a Manager  -->
+                <Button
+                    x:Name="manageStaffButton"
+                    Grid.Column="0"
+                    Clicked="OnManageStaffClicked"
+                    HorizontalOptions="Start"
+                    IsVisible="False"
+                    Text="Manage Staff" />
+
+                <!--  Sign out button  -->
+                <Button
+                    x:Name="SignOutButton"
+                    Grid.Column="1"
+                    Clicked="OnSignOutClicked"
+                    HorizontalOptions="End"
+                    Text="Sign Out" />
+
+            </Grid>
+
+            <!--  Page Title  -->
+            <Label
+                FontAttributes="Bold"
+                FontSize="32"
+                HorizontalOptions="Center"
+                Text="Staff Dashboard" />
+
+            <!--  Total Check-Ins Title  -->
+            <Label
+                x:Name="totalCheckInsTitleLabel"
+                FontSize="20"
+                HorizontalOptions="Center"
+                Text="Today's Total Check-Ins" />
+
+            <!--  Total Check-Ins Number  -->
+            <Label
+                x:Name="totalCheckInsLabel"
+                FontAttributes="Bold"
+                FontSize="46"
+                HorizontalOptions="Center"
+                Text="0" />
+
+            <!--  Status Breakdown Title  -->
+            <Label
+                Margin="0,10,0,0"
+                FontAttributes="Bold"
+                FontSize="20"
+                HorizontalOptions="Center"
+                Text="Check-In Status Breakdown" />
+
+            <!--  Status Cards  -->
+            <Grid
+                Margin="0,10,0,0"
+                ColumnDefinitions="*,*,*,*,*"
+                ColumnSpacing="12"
+                HorizontalOptions="Center">
+
+                <!--  Veterans  -->
+                <Border
+                    Grid.Column="0"
+                    Padding="15"
+                    BackgroundColor="#2A2A2A"
+                    StrokeShape="RoundRectangle 12">
+
+                    <VerticalStackLayout Spacing="6">
+
+                        <Label
+                            FontAttributes="Bold"
+                            HorizontalOptions="Center"
+                            Text="Veterans" />
+
+                        <Label
+                            x:Name="veteranCountLabel"
+                            FontSize="26"
+                            HorizontalOptions="Center"
+                            Text="0" />
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+                <!--  Active Duty  -->
+                <Border
+                    Grid.Column="1"
+                    Padding="15"
+                    BackgroundColor="#2A2A2A"
+                    StrokeShape="RoundRectangle 12">
+
+                    <VerticalStackLayout Spacing="6">
+
+                        <Label
+                            FontAttributes="Bold"
+                            HorizontalOptions="Center"
+                            Text="Active Duty" />
+
+                        <Label
+                            x:Name="activeDutyCountLabel"
+                            FontSize="26"
+                            HorizontalOptions="Center"
+                            Text="0" />
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+                <!--  Reserve  -->
+                <Border
+                    Grid.Column="2"
+                    Padding="15"
+                    BackgroundColor="#2A2A2A"
+                    StrokeShape="RoundRectangle 12">
+
+                    <VerticalStackLayout Spacing="6">
+
+                        <Label
+                            FontAttributes="Bold"
+                            HorizontalOptions="Center"
+                            Text="Reserve" />
+
+                        <Label
+                            x:Name="reserveCountLabel"
+                            FontSize="26"
+                            HorizontalOptions="Center"
+                            Text="0" />
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+                <!--  Dependent  -->
+                <Border
+                    Grid.Column="3"
+                    Padding="15"
+                    BackgroundColor="#2A2A2A"
+                    StrokeShape="RoundRectangle 12">
+
+                    <VerticalStackLayout Spacing="6">
+
+                        <Label
+                            FontAttributes="Bold"
+                            HorizontalOptions="Center"
+                            Text="Dependent" />
+
+                        <Label
+                            x:Name="dependentCountLabel"
+                            FontSize="26"
+                            HorizontalOptions="Center"
+                            Text="0" />
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+                <!--  Civilian  -->
+                <Border
+                    Grid.Column="4"
+                    Padding="15"
+                    BackgroundColor="#2A2A2A"
+                    StrokeShape="RoundRectangle 12">
+
+                    <VerticalStackLayout Spacing="6">
+
+                        <Label
+                            FontAttributes="Bold"
+                            HorizontalOptions="Center"
+                            Text="Civilian" />
+
+                        <Label
+                            x:Name="civilianCountLabel"
+                            FontSize="26"
+                            HorizontalOptions="Center"
+                            Text="0" />
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+            </Grid>
+
+            <!--  Check-In History Filter  -->
+            <HorizontalStackLayout Margin="0,15,0,0" Spacing="10">
+
+                <Label
+                    FontAttributes="Bold"
+                    Text="View:"
+                    VerticalOptions="Center" />
+
+                <Picker
+                    x:Name="dateFilterPicker"
+                    SelectedIndexChanged="OnDateFilterChanged"
+                    WidthRequest="180">
+
+                    <Picker.Items>
+                        <x:String>Today</x:String>
+                        <x:String>Last 7 Days</x:String>
+                        <x:String>Last 30 Days</x:String>
+                        <x:String>This Month</x:String>
+                        <x:String>Previous Month</x:String>
+                        <x:String>All Check-Ins</x:String>
+                    </Picker.Items>
+
+                </Picker>
+
+            </HorizontalStackLayout>
+
+            <!--  Student List Title  -->
+            <Label
+                x:Name="studentListTitleLabel"
+                Margin="0,20,0,0"
+                FontAttributes="Bold"
+                FontSize="24"
+                Text="Today's Student Check-Ins" />
+
+            <!--  Column Headers  -->
+            <Grid ColumnDefinitions="*,2*,*,1.5*" ColumnSpacing="10">
+
+                <Label
+                    Grid.Column="0"
+                    FontAttributes="Bold"
+                    Text="Student ID" />
+
+                <Label
+                    Grid.Column="1"
+                    FontAttributes="Bold"
+                    Text="Name" />
+
+                <Label
+                    Grid.Column="2"
+                    FontAttributes="Bold"
+                    Text="Status" />
+
+                <Label
+                    Grid.Column="3"
+                    FontAttributes="Bold"
+                    Text="Date / Time" />
+
+            </Grid>
+
+            <!--  Student List  -->
+            <CollectionView x:Name="checkInCollectionView">
+
+                <CollectionView.ItemTemplate>
+
+                    <DataTemplate>
+
+                        <Grid
+                            Padding="0,8"
+                            ColumnDefinitions="*,2*,*,1.5*"
+                            ColumnSpacing="10">
+
+                            <Label Grid.Column="0" Text="{Binding StudentId}" />
+
+                            <Label Grid.Column="1" Text="{Binding FullName}" />
+
+                            <Label Grid.Column="2" Text="{Binding Status}" />
+
+                            <Label Grid.Column="3" Text="{Binding CheckInTime, StringFormat='{0:MM/dd/yy hh:mm tt}'}" />
+
+                        </Grid>
+
+                    </DataTemplate>
+
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>

@@ -1,0 +1,6 @@
+@SFSU_VeteranServices_Tracker.Api_HostAddress = http://localhost:5128
+
+GET {{SFSU_VeteranServices_Tracker.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
