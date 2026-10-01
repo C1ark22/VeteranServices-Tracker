@@ -1,4 +1,17 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿/******************************************************************************
+ * Project: SFSU Veteran Services Tracker
+ * Author: Clark Batungbakal 
+ * Class Name: StaffController
+ * 
+ * Description:
+ * Handles Manager-only API requests for creating new Staff accounts.
+ * Validates the account information, prevents duplicate usernames,
+ * hashes Staff passwords before saving them, and stores the new Staff
+ * account in the database using Entity Framework Core.
+ * 
+ * ***************************************************************************/
+
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;

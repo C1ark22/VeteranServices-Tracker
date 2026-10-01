@@ -1,4 +1,18 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿/******************************************************************************
+ * Project: SFSU Veteran Services Tracker
+ * Author: Clark Batungbakal 
+ * Class Name: CheckInsController.cs
+ * 
+ * Description:
+ * Handles API requests for student check-in records.
+ * Allows the application to create new student check-ins and retrieve
+ * existing check-in history. Uses Entity Framework Core to communicate
+ * with the database and protects check-in history so only authenticated
+ * Staff and Manager users can access it.
+ * 
+ * ***************************************************************************/
+
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SFSU_VeteranServices_Tracker.Api.Data;
 using SFSU_VeteranServices_Tracker.Api.Models;

@@ -1,4 +1,15 @@
-﻿using System;
+﻿/******************************************************************************
+ * Project: SFSU Veteran Services Tracker
+ * Author: Clark Batungbakal 
+ * Class Name: CreateStaffRequest.cs
+ * 
+ * Description: Represents a request to create a new staff member with 
+ * authentication information.
+ * 
+ * ***************************************************************************/
+
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

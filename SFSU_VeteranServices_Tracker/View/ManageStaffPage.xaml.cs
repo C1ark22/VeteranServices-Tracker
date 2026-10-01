@@ -1,4 +1,16 @@
-﻿using System;
+﻿/******************************************************************************
+ * Project: SFSU Veteran Services Tracker
+ * Author: Clark Batungbakal 
+ * Class Name: ManageStaffPage.xaml.cs
+ * 
+ * Description: Handles the Manager-only page used to create new Staff accounts.
+ * Validates the username and password fields, confirms that the passwords
+ * match, and sends the new Staff account information to the backend API
+ * through ApiService.
+ * 
+ * ***************************************************************************/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using SFSU_VeteranServices_Tracker.Services;

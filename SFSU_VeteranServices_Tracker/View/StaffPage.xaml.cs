@@ -1,4 +1,18 @@
-﻿using SFSU_VeteranServices_Tracker.Model;
+﻿/******************************************************************************
+ * Project: SFSU Veteran Services Tracker
+ * Author: Clark Batungbakal 
+ * Class Name: StaffPage.xaml.cs
+ * 
+ * Description:
+ * Handles the Staff Dashboard used by authenticated Staff and Manager users.
+ * Loads student check-in records from the backend API, displays check-in
+ * totals by status, filters records by selected date ranges, and sorts the
+ * results so the most recent check-ins appear first. It also controls
+ * Manager-only access to the Manage Staff page and handles staff sign-out.
+ * 
+ * ***************************************************************************/
+
+using SFSU_VeteranServices_Tracker.Model;
 using SFSU_VeteranServices_Tracker.Services;
 using Microsoft.Maui.Storage;
 using System.Text.Json;

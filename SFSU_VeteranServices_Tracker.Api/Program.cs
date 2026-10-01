@@ -1,3 +1,17 @@
+/******************************************************************************
+ * Project: SFSU Veteran Services Tracker
+ * Author: Clark Batungbakal 
+ * Class Name: Program.cs
+ * 
+ * Description:
+ * Configures and starts the ASP.NET Core Web API for the Veteran Services
+ * Tracker. Registers application services such as controllers, Entity
+ * Framework Core, Azure SQL database access, password hashing, JWT
+ * authentication, and role-based authorization. It also creates the
+ * initial Manager account when needed and starts the API application.
+ * 
+ * ***************************************************************************/
+
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;

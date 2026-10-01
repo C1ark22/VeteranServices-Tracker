@@ -1,4 +1,16 @@
-﻿namespace SFSU_VeteranServices_Tracker.Api.Models
+﻿/******************************************************************************
+ * Project: SFSU Veteran Services Tracker
+ * Author: Clark Batungbakal 
+ * Class Name: StaffUser.cs
+ * 
+ * Description:
+ * Represents a Staff or Manager account stored in the database.
+ * Stores account information such as the username, hashed password,
+ * user role, account status, and account creation date.
+ * 
+ * ***************************************************************************/
+
+namespace SFSU_VeteranServices_Tracker.Api.Models
 {
     public class StaffUser
     {

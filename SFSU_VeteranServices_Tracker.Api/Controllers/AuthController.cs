@@ -1,4 +1,17 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿/******************************************************************************
+ * Project: SFSU Veteran Services Tracker
+ * Author: Clark Batungbakal 
+ * Class Name: AuthController.cs
+ * 
+ * Description:
+ * Handles authentication for Staff and Manager accounts.
+ * Verifies the username and hashed password against the database and,
+ * when the credentials are valid, generates a JWT containing the user's
+ * identity and role. Returns an unauthorized response when login fails.
+ * 
+ * ***************************************************************************/
+
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;

@@ -1,4 +1,15 @@
-﻿using System;
+﻿/******************************************************************************
+ * Project: SFSU Veteran Services Tracker
+ * Author: Clark Batungbakal 
+ * Class Name: LoginRequest.cs
+ * 
+ * Description: Represents a request to log in a user with authentication 
+ * information.
+ * 
+ * ***************************************************************************/
+
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

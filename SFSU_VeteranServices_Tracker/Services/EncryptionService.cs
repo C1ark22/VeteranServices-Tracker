@@ -3,15 +3,10 @@
  * Author: Clark Batungbakal 
  * Class Name: EncryptionService.cs
  * 
- * Description: I created an EncryptionService to separate encryption from the
- * rest of the application. It has three main responsibilities. First, 
- * GetEncryptionKeyAsync retrieves the application's encryption key from MAUI 
- * SecureStorage. If one doesn't exist yet, the application generates a random 
- * 256-bit key and stores it securely. Second, EncryptAsync converts normal 
- * text into bytes and encrypts those bytes using AES-GCM. Each encryption also
- * generates a random nonce and an authentication tag. Finally, DecryptAsync 
- * reverses the process using the same key, nonce, and tag to recover the original 
- * information.
+ * Description: EncryptionService handles encryption and decryption for the
+ * earlier local-storage version of the application.
+ * It uses AES-GCM to protect check-in data before saving it
+ * and uses SecureStorage to keep the encryption key secure.
  * 
  * ***************************************************************************/
 

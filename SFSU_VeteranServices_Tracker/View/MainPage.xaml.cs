@@ -123,65 +123,6 @@ namespace SFSU_VeteranServices_Tracker
             await Launcher.Default.OpenAsync(url);
 
             codeOfConductCheckBox.IsEnabled = true;
-        }
-        private async Task SaveCheckIntoFile(string encryptedStudent)
-        {
-            try
-            {
-                // Get the user's Documents folder
-                string documentsFolder =
-                    Environment.GetFolderPath(
-                        Environment.SpecialFolder.MyDocuments);
-
-                // Create the VeteranServicesTracker folder
-                string trackerFolder =
-                    Path.Combine(
-                        documentsFolder,
-                        "VeteranServicesTracker");
-
-                Directory.CreateDirectory(trackerFolder);
-
-                // Create the path to the CSV file
-                string filePath =
-                    Path.Combine(
-                        trackerFolder,
-                        "checkins.csv");
-
-                // Create the column names
-                string header =
-                    "RecordId,EncryptedPayload";
-
-                // Give each check-in its own unique ID
-                string recordId =
-                    Guid.NewGuid().ToString();
-
-                // Create the row that will be saved
-                string record =
-                    $"{recordId},{encryptedStudent}";
-
-                // If the file does not exist yet,
-                // create it and add the header
-                if (!File.Exists(filePath))
-                {
-                    await File.WriteAllTextAsync(
-                        filePath,
-                        header +
-                        Environment.NewLine);
-                }
-
-                // Add the encrypted check-in
-                await File.AppendAllTextAsync(
-                    filePath,
-                    record +
-                    Environment.NewLine);
-            }
-            catch (Exception ex)
-            {
-                await DisplayAlertAsync(
-                    "File Error",
-                    ex.Message,
-                    "OK");
-            }
-        }
+        } 
     }
 }

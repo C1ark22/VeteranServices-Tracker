@@ -1,4 +1,17 @@
-﻿using SFSU_VeteranServices_Tracker.Model;
+﻿/******************************************************************************
+ * Project: SFSU Veteran Services Tracker
+ * Author: Clark Batungbakal 
+ * Class Name: ApiService.cs
+ * 
+ * Description: ApiService handles all communication between the MAUI app
+ * and the backend API. It sends HTTP requests, receives JSON
+ * responses, and manages actions such as student check-ins,
+ * staff login, viewing check-in records, and creating staff accounts.
+ * 
+ * ***************************************************************************/
+
+
+using SFSU_VeteranServices_Tracker.Model;
 using System.Net;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
