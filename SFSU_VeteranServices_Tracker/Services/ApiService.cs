@@ -25,6 +25,19 @@ namespace SFSU_VeteranServices_Tracker.Services
             HttpResponseMessage response =
                 await httpClient.PostAsJsonAsync("api/CheckIns",student);
 
+            if (!response.IsSuccessStatusCode)
+            {
+                string errorMessage =
+                    await response.Content.ReadAsStringAsync();
+
+                System.Diagnostics.Debug.WriteLine(
+                    $"Check-In Error: {(int)response.StatusCode} " +
+                    $"{response.StatusCode}");
+
+                System.Diagnostics.Debug.WriteLine(
+                    errorMessage);
+            }
+
             // If the API returns null, return an empty list instead
             return response.IsSuccessStatusCode;
         }
