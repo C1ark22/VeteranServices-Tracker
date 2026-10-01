@@ -1,0 +1,53 @@
+name: Veteran Services API CI/CD
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "SFSU_VeteranServices_Tracker.Api/**"
+      - ".github/workflows/api-cicd.yml"
+
+  # Allows us to run the workflow manually from GitHub.
+  workflow_dispatch:
+
+env:
+  AZURE_WEBAPP_NAME: veteranservices-api-clark
+  API_PROJECT: SFSU_VeteranServices_Tracker.Api/SFSU_VeteranServices_Tracker.Api.csproj
+  PUBLISH_FOLDER: ./publish
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      # Get the code from the repository.
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Install the .NET version used by the API.
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.x"
+
+      # Restore packages for only the API project.
+      - name: Restore API
+        run: dotnet restore "${{ env.API_PROJECT }}"
+
+      # Build the API in Release mode.
+      - name: Build API
+        run: dotnet build "${{ env.API_PROJECT }}" --configuration Release --no-restore
+
+      # Create the files that will be deployed to Azure.
+      - name: Publish API
+        run: dotnet publish "${{ env.API_PROJECT }}" --configuration Release --no-build --output "${{ env.PUBLISH_FOLDER }}"
+
+      # Deploy the published files to Azure App Service.
+      - name: Deploy API to Azure
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          package: ${{ env.PUBLISH_FOLDER }}
