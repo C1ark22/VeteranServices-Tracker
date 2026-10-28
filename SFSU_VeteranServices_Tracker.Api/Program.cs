@@ -63,6 +63,9 @@ namespace SFSU_VeteranServices_Tracker.Api
 
             builder.Services.AddAuthorization();
 
+            builder.Services.AddHttpClient();
+
+
             // Allows Swagger to discover API endpoints
             builder.Services.AddEndpointsApiExplorer();
 

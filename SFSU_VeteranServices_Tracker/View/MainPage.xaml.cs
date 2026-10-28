@@ -116,6 +116,10 @@ namespace SFSU_VeteranServices_Tracker
                 $"Thank you for checking in, {student.FullName}!",
                 "OK");
         }
+        private async void OnAiCheckInClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AiCheckInPage());
+        }
         private async void OnCodeOfConductTapped(object sender, TappedEventArgs e)
         {
             string url = "https://conduct.sfsu.edu/standards";
